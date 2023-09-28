@@ -61,13 +61,13 @@ void HackathonBot::takeAction(float price) {
         ratios.push_back(*it / first);
 
         if ((ratios.at(0) > 1.2 and
-            ratios.at(1) < 0.85 and
-            ratios.at(2) > 1.3 and
-            ratios.at(3) > 1.5)
-        or  (ratios.at(0) < 0.85 and
-            ratios.at(1) > 1.15 and
-            ratios.at(2) < 0.75 and
-            ratios.at(3) < 0.55))
+                ratios.at(1) < 0.85 and
+                ratios.at(2) > 1.3 and
+                ratios.at(3) > 1.5)
+                or  (ratios.at(0) < 0.85 and
+                     ratios.at(1) > 1.15 and
+                     ratios.at(2) < 0.75 and
+                     ratios.at(3) < 0.55))
         {
             this->sell();
             return;
