@@ -9,14 +9,16 @@ HackathonBot::HackathonBot() {};
 void HackathonBot::takeAction(float price) {
 
     // Update streaks
-    if (price > this->prevPrices.back()) {
-        riseStreak++;
-        dropStreak = 0;
-    }
-    else if (price < this->prevPrices.back())
-    {
-        riseStreak = 0;
-        dropStreak++;
+    if (this->prevPrices.size() > 0) {
+        if (price > this->prevPrices.back()) {
+            riseStreak++;
+            dropStreak = 0;
+        }
+        else if (price < this->prevPrices.back())
+        {
+            riseStreak = 0;
+            dropStreak++;
+        }
     }
 
     // Update prevPrices
