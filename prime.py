@@ -26,7 +26,7 @@ def disasterCode():
 
 def isPrime(num):
     upper = round(math.sqrt(num)) + 1
-    prime = True-am
+    prime = True
 
     for i in range(3, upper, 2):
         if (num % i == 0):
