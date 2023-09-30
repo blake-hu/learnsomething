@@ -6,7 +6,7 @@ def disasterCode():
     all_primes = set()
     primes_by_num = defaultdict(set)
 
-    for num in range (2, 2500):
+    for num in range (2, 1000):
     
         upper = round(math.sqrt(num)) + 1
         for factor in range (2, upper):
