@@ -1,24 +1,40 @@
 import timeit
 import math
+from collections import defaultdict
 
 def disasterCode():
-    upper = round(math.sqrt(1000))
-    for i in range (2, upper):
-        uniquePrimes = []
-        currentPrime = i
-        for j in range (2,i):
-            checkPrime = j
-            flag = False
-            for k in range (2,checkPrime-1):
-                if (j%k==0):
-                    flag = True
-                    break
-            if not flag and i%checkPrime==0 and checkPrime <= i:
-                while (currentPrime%checkPrime==0):
-                    currentPrime/=checkPrime
-                uniquePrimes.append(checkPrime)
-        if len(uniquePrimes) == 0:
-            uniquePrimes.append(i)
+    all_primes = set()
+    primes_by_num = defaultdict(set)
+
+    for num in range (2, 2500):
+    
+        upper = round(math.sqrt(num)) + 1
+        for factor in range (2, upper):
+
+            if num % factor != 0 or factor % 2 == 0:
+                # num is not a multiple of factor
+                continue
+
+            if factor in all_primes:
+                # factor is a prime factor of num
+                primes_by_num[num].add(factor)
+                continue
+
+            if isPrime(factor):
+                all_primes.add(factor)
+                primes_by_num[num].add(factor)
+
+def isPrime(num):
+    upper = round(math.sqrt(num)) + 1
+    prime = True-am
+
+    for i in range(3, upper, 2):
+        if (num % i == 0):
+            prime = False
+            break
+
+    return prime
+
 
 # Benchmark the code
 if __name__ == "__main__":
@@ -27,9 +43,9 @@ if __name__ == "__main__":
 
     # Measure the execution time of disasterCode function
     times = []
-    for i in range(0,5):
+    for i in range(0, 5):
         times.append(timeit.timeit(benchmark_code, setup=setup_code, number=1))
 
-    res = sum(times)/5
+    res = sum(times) / 5
 
     print(f"Average execution time after 5 runs: {res:.6f} seconds")
