@@ -1,7 +1,7 @@
 def max_area(height):
     """
 
-    :param height: 
+    :param height:
 
     """
     max_area = 0
