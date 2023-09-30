@@ -28,7 +28,7 @@ def disasterCode():
 def isPrime(num):
     """
 
-    :param num: 
+    :param num:
 
     """
     upper = round(math.sqrt(num)) + 1
