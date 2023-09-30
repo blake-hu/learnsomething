@@ -2,14 +2,15 @@ import timeit
 import math
 from collections import defaultdict
 
+
 def disasterCode():
     all_primes = set()
     primes_by_num = defaultdict(set)
 
-    for num in range (2, 1000):
-    
+    for num in range(2, 1000):
+
         upper = round(math.sqrt(num)) + 1
-        for factor in range (2, upper):
+        for factor in range(2, upper):
 
             if num % factor != 0 or factor % 2 == 0:
                 # num is not a multiple of factor
@@ -23,6 +24,7 @@ def disasterCode():
             if isPrime(factor):
                 all_primes.add(factor)
                 primes_by_num[num].add(factor)
+
 
 def isPrime(num):
     upper = round(math.sqrt(num)) + 1
