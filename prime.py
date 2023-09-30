@@ -1,7 +1,9 @@
 import timeit
+import math
 
 def disasterCode():
-    for i in range (2,2500):
+    upper = round(math.sqrt(1000))
+    for i in range (2, upper):
         uniquePrimes = []
         currentPrime = i
         for j in range (2,i):
