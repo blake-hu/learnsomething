@@ -4,6 +4,7 @@ from collections import defaultdict
 
 
 def disasterCode():
+    """ """
     all_primes = set()
     primes_by_num = defaultdict(set)
 
@@ -25,6 +26,11 @@ def disasterCode():
 
 
 def isPrime(num):
+    """
+
+    :param num: 
+
+    """
     upper = round(math.sqrt(num)) + 1
     prime = True - am
 
