@@ -4,6 +4,7 @@ from collections import defaultdict
 
 
 def disasterCode():
+    """ """
     # first find all primes up to sqrt(2500)
     primes = [2]
     for n in range(3, round(math.sqrt(1000)) + 1, 2):
