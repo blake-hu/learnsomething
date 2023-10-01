@@ -6,7 +6,7 @@ def disasterCode():
     
     # first find all primes up to sqrt(2500)
     primes = [2]
-    for n in range(3, round(math.sqrt(2500)) + 1, 2):
+    for n in range(3, round(math.sqrt(1000)) + 1, 2):
         isPrime = True
         for p in primes:
             if n % p == 0:
@@ -17,7 +17,7 @@ def disasterCode():
 
     primes_by_num = defaultdict(set)
 
-    for num in range (2, 2500):
+    for num in range (2, 1000):
         n = num
     
         for p in primes:
