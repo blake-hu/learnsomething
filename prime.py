@@ -3,38 +3,33 @@ import math
 from collections import defaultdict
 
 def disasterCode():
-    all_primes = set()
+    
+    # first find all primes up to sqrt(2500)
+    primes = [2]
+    for n in range(3, round(math.sqrt(2500)) + 1, 2):
+        isPrime = True
+        for p in primes:
+            if n % p == 0:
+                isPrime = False
+                break
+        if isPrime:
+            primes.append(n)
+
     primes_by_num = defaultdict(set)
 
-    for num in range (2, 1000):
+    for num in range (2, 2500):
+        n = num
     
-        upper = round(math.sqrt(num)) + 1
-        for factor in range (2, upper):
-
-            if num % factor != 0 or factor % 2 == 0:
-                # num is not a multiple of factor
-                continue
-
-            if factor in all_primes:
-                # factor is a prime factor of num
-                primes_by_num[num].add(factor)
-                continue
-
-            if isPrime(factor):
-                all_primes.add(factor)
-                primes_by_num[num].add(factor)
-
-def isPrime(num):
-    upper = round(math.sqrt(num)) + 1
-    prime = True
-
-    for i in range(3, upper, 2):
-        if (num % i == 0):
-            prime = False
-            break
-
-    return prime
-
+        for p in primes:
+            if n % p == 0:
+                primes_by_num[num].add(p)
+                n //= p
+                cached_primes = primes_by_num[n]
+                primes_by_num[num] = primes_by_num[num].union(cached_primes)
+                break
+        else:
+            primes_by_num[num].add(n)
+    
 
 # Benchmark the code
 if __name__ == "__main__":
