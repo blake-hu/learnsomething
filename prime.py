@@ -1,9 +1,10 @@
-import timeit
 import math
+import timeit
 from collections import defaultdict
 
+
 def disasterCode():
-    
+    """ """
     # first find all primes up to sqrt(2500)
     primes = [2]
     for n in range(3, round(math.sqrt(1000)) + 1, 2):
@@ -17,9 +18,9 @@ def disasterCode():
 
     primes_by_num = defaultdict(set)
 
-    for num in range (2, 1000):
+    for num in range(2, 1000):
         n = num
-    
+
         for p in primes:
             if n % p == 0:
                 primes_by_num[num].add(p)
@@ -29,7 +30,7 @@ def disasterCode():
                 break
         else:
             primes_by_num[num].add(n)
-    
+
 
 # Benchmark the code
 if __name__ == "__main__":
